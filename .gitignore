@@ -15,17 +15,9 @@ Icon
 ._*
 
 # My Git Repository gitignore
-kuksnodejs/kukssns/package.json
-kuksnodejs/kukssns/package-lock.json
-kuksnodejs/kukssns/.env
-
-kuksnodejs/kuksservice/package.json
-kuksnodejs/kuksservice/package-lock.json
-kuksnodejs/kuksservice/.env
-
-kuksnodejs/kukssns-api/package.json
-kuksnodejs/kukssns-api/package-lock.json
-kuksnodejs/kukssns-api/.env
+/package.json
+/package-lock.json
+.env
 
 # Files that might appear in the root of a volume
 .DocumentRevisions-V100
