@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>API Server Login</title>
+    <style>
+      .input-group label { width: 200px; display: inline-block; }
+    </style>
+  </head>
+  <body>
+    {% if user and user.id %}
+      <span class="user-name">Hello! {{user.nick}}</span>
+      <a href="/auth/logout">
+        <button>logout</button>
+      </a>
+      <fieldset>
+        <legend>domain registration</legend>
+        <form action="/domain" method="post">
+          <div>
+            <label for="type-free">free</label>
+            <input type="radio" id="type-free" name="type" value="free">
+            <label for="type-premium">premium</label>
+            <input type="radio" id="type-premium" name="type" value="premium">
+          </div>
+          <div>
+            <label for="host">domain</label>
+            <input type="text" id="host" name="host" placeholder="ex) localhost:8091">
+          </div>
+          <button>save</button>
+        </form>
+      </fieldset>
+      <table>
+        <tr>
+          <th>domain address</th>
+          <th>type</th>
+          <th>client secret key</th>
+        </tr>
+        {% for domain in domains %}
+          <tr>
+            <td>{{domain.host}}</td>
+            <td>{{domain.type}}</td>
+            <td>{{domain.clientSecret}}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <form action="/auth/login" id="login-form" method="post">
+        <h2>login as kukssns account.</h2>
+        <div class="input-group">
+          <label for="email">e-mail</label>
+          <input id="email" type="email" name="email" required autofocus>
+        </div>
+        <div class="input-group">
+          <label for="password">password</label>
+          <input id="password" type="password" name="password" required>
+        </div>
+        <div>sign up at localhost:8090.</div>
+        <button id="login" type="submit">login</button>
+      </form>
+      <script>
+        window.onload = () => {
+          if (new URL(location.href).searchParams.get('error')) {
+            alert(new URL(location.href).searchParams.get('error'));
+          }
+        };
+      </script>
+    {% endif %}
+  </body>
+</html>
