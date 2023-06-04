@@ -15,6 +15,9 @@
  * 
  * in/out ex
  * n=3 | computers=[[1, 1, 0], [1, 1, 0], [0, 0, 1]] | return=2
+ * 110
+ * 110
+ * 001
  * n=3 | computers=[[1, 1, 0], [1, 1, 1], [0, 1, 1]] | return=1
  */
 
@@ -25,6 +28,14 @@
 // i번 컴퓨터와 j번 컴퓨터가 연결되어 있으면 -> computers[i][j]
 // computer[i][j] = 1
 
-function sol(n, computers) {
+const n = 3;
+const computers = 
 
+function sol(n, computers) {
+    for(let i=0; i<n; i++){
+
+        for(let j=0; j<n; j++){
+            
+        }
+    }
 }
